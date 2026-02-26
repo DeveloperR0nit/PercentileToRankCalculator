@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+
+body {
+  background: url("../assests/home-bg-img.jpg") no-repeat center/cover;
+  min-height: 100vh;
+  position: relative;
+  color: white !important;
+  font-family: "Quicksand", sans-serif !important;
+}
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+.title-1 {
+  color: #00ffff;
+  text-align: center;
+  font-size: 40px;
+  text-transform: uppercase;
+  padding-top: 80px;
+  margin-bottom: 60px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+.container {
+  max-width: 1440px;
+  padding: 0 15px;
+  width: 100%;
+  margin: 0 auto;
+}
+.title-2 {
+  font-size: 32px;
+  color: #4fc3f7;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+input:focus,
+input:active {
+  border: none;
+  outline: none;
+}
+.percentile-box {
+  margin-bottom: 50px;
+}
+.Btn {
+  margin: 40px auto 0;
+}
+.students-box span {
+  font-size: 22px;
+}
+
+/* Button */
+
+.Btn {
+  position: relative;
+  width: 150px;
+  height: 55px;
+  border-radius: 45px;
+  border: none;
+  background-color: rgb(151, 95, 255);
+  color: white;
+  box-shadow:
+    0px 10px 10px rgb(210, 187, 253) inset,
+    0px 5px 10px rgba(5, 5, 5, 0.212),
+    0px -10px 10px rgb(124, 54, 255) inset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.Btn::before {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.678);
+  content: "";
+  filter: blur(1px);
+  top: 7px;
+  border-radius: 50%;
+}
+
+.Btn::after {
+  width: 70%;
+  height: 2px;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.137);
+  content: "";
+  filter: blur(1px);
+  bottom: 7px;
+  border-radius: 50%;
+}
+
+.Btn:hover {
+  animation: jello-horizontal 0.9s both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* From Uiverse.io by Praashoo7 */
+.input {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: 300ms ease-in-out;
+  font-weight: 600;
+}
+
+.input:focus {
+  background-color: white;
+  transform: scale(1.05);
+  box-shadow:
+    13px 13px 100px #969696,
+    -13px -13px 100px #ffffff;
+}
+#percentile {
+  max-width: 140px;
+}
+#students {
+  max-width: 110px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.col-md-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.results {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: 1s ease;
+}
+.results.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.results > .rank {
+  font-size: 35px;
+  line-height: 0.9;
+}
+
+/* Responsive */
+@media screen and (max-width: 1200px) {
+  .results > .text {
+    line-height: 1;
+  }
+  .results > .rank {
+    line-height: 1.3;
+  }
+}
+@media screen and (max-width: 992px) {
+  .results {
+    font-size: 25px;
+  }
+  .title-2 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .title-1 {
+    font-size: 35px;
+    padding-top: 60px;
+    margin-bottom: 50px;
+  }
+  .results {
+    font-size: 30px;
+  }
+  .results > .rank {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .title-1 {
+    font-size: 28px;
+    margin-bottom: 35px;
+  }
+  .title-2 {
+    font-size: 23px;
+  }
+  .students-box span {
+    font-size: 18px;
+  }
+  .percentile-box {
+    margin-bottom: 30px;
+  }
+  .Btn {
+    margin: 30px auto 0;
+    width: 135px;
+    height: 45px;
+  }
+  .results {
+    font-size: 23px;
+  }
+  .input {
+    padding: 5px 15px;
+  }
+}
