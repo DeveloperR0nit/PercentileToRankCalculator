@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Percentile to Rank Calculator</title>
+    <link rel="icon" sizes="32x32" href="./assests/favoin-img.png" />
+    <link rel="icon" sizes="16x16" href="./assests/favoin-img.png" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css" />
     <!-- Bootstrap CSS -->
@@ -23,12 +25,20 @@
     />
   </head>
   <body>
+    <!-- Loader -->
+    <div class="spinner-wrapper" id="spinner-wrapper">
+      <div class="spinner">
+        <div class="spinner1"></div>
+      </div>
+    </div>
+
     <div class="container">
       <h1 class="title-1">
         welcome to Percentile
         <i class="fa-solid fa-arrow-right-arrow-left"></i> Rank Calculator 🗿
       </h1>
       <div class="content">
+        <audio src="./assests/faah-sound-effect.mp3" id="submitSound"></audio>
         <div class="row">
           <div class="col-12 col-md-8 mb-3 mb-md-0">
             <form action="" id="myForm">
@@ -65,8 +75,7 @@
             </form>
           </div>
           <div class="col-12 col-md-4">
-            <div class="results">
-            </div>
+            <div class="results"></div>
           </div>
         </div>
       </div>
