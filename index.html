@@ -23,6 +23,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- FancyBox CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"
+    />
   </head>
   <body>
     <!-- Loader -->
@@ -35,14 +40,23 @@
     <div class="container">
       <h1 class="title-1">
         welcome to Percentile
-        <i class="fa-solid fa-arrow-right-arrow-left"></i> Rank Calculator 🗿
+        <i class="fa-solid fa-arrow-right-arrow-left"></i> Rank Calculator
+        <button
+          type="button"
+          class="btn btn-primary title-1-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          🗿
+        </button>
       </h1>
       <div class="content">
         <audio src="./assests/faah-sound-effect.mp3" id="submitSound"></audio>
+        <audio src="./assests/fart-sound-effect.mp3" id="errorSound"></audio>
         <div class="row">
           <div class="col-12 col-md-8 mb-3 mb-md-0">
-            <form action="" id="myForm">
-              <div class="percentile-box">
+            <form action="" id="myForm" class="position-relative">
+              <div class="percentile-box position-relative">
                 <h2 class="title-2">Enter Your Percentile Kid</h2>
                 <input
                   type="number"
@@ -52,11 +66,13 @@
                   placeholder="99.9987"
                   id="percentile"
                   step="any"
-                  min="0"
-                  max="100"
                 />
+                <div class="range-error error">
+                  Lagta hai tera percentile ka concept clear nahi hai 🥀
+                </div>
+                <div class="null-error-1 error">apna percentile daal gawar</div>
               </div>
-              <div class="students-box">
+              <div class="students-box position-relative">
                 <h2 class="title-2">
                   Enter Total No of Students Appeared for the Exam
                 </h2>
@@ -69,13 +85,46 @@
                   id="students"
                   step="any"
                 />
+                <div class="null-error-2 error">
+                  no. of students daal le gawar
+                </div>
                 <span>(in Lakhs)</span>
               </div>
               <button class="Btn" type="submit">Check</button>
+              <div class="null-error-3 error">
+                Apna rank aur percentile daal warna kya calculate krega???
+              </div>
             </form>
           </div>
           <div class="col-12 col-md-4">
             <div class="results"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-body position-relative">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span class="line-1 line"></span>
+              <span class="line-2 line"></span>
+            </button>
+            <div class="image-box">
+              <img src="./assests/dummy-image.avif" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -88,5 +137,12 @@
     ></script>
     <!-- Custom JS -->
     <script src="./js/script.js"></script>
+    <!-- FancyBox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+      });
+    </script>
   </body>
 </html>
