@@ -82,9 +82,9 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
   sound.play();
 });
 
-const myModal = document.getElementById("myModal");
-const myInput = document.getElementById("myInput");
-
-myModal.addEventListener("shown.bs.modal", () => {
-  myInput.focus();
+const esterEggSound = document.getElementById("esterEggSound");
+const esterBtn = document.querySelector(".title-1-btn");
+esterBtn.addEventListener("click", () => {
+  esterEggSound.currentTime = 0;
+  esterEggSound.play();
 });
