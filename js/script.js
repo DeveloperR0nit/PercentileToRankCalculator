@@ -7,6 +7,8 @@ window.addEventListener("load", function () {
   }, 1100);
 });
 
+// Indian Number Function
+
 function indianNumbers(num) {
   let numArr = String(num).split("");
   let len = numArr.length;
@@ -22,6 +24,8 @@ function indianNumbers(num) {
   let indianNum = numArr.join("");
   return indianNum;
 }
+
+// Form-1 Submit
 
 const results = document.querySelector(".results");
 const sound = document.getElementById("submitSound");
@@ -93,20 +97,141 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
   sound.play();
 });
 
+// Reset Btn 1
+
 const resetBtn = document.querySelector(".reset-btn");
-function updateResetBtn() {
+function updateResetBtn1() {
   if (percentileInput.value.length > 0 || studentsInput.value.length > 0) {
     resetBtn.classList.add("show");
   } else {
     resetBtn.classList.remove("show");
   }
 }
-percentileInput.addEventListener("input", updateResetBtn);
-studentsInput.addEventListener("input", updateResetBtn);
+percentileInput.addEventListener("input", updateResetBtn1);
+studentsInput.addEventListener("input", updateResetBtn1);
 
 resetBtn.addEventListener("click", () => {
   resetBtn.classList.remove("show");
-})
+});
+
+// Form-2 Submit
+const results2 = document.querySelector(".results-2");
+const rangeError2 = document.querySelector(".range-error2");
+const rangeError3 = document.querySelector(".range-error3");
+const rangeError4 = document.querySelector(".range-error4");
+const nullError4 = document.querySelector(".null-error4");
+const nullError5 = document.querySelector(".null-error5");
+const nullError6 = document.querySelector(".null-error6");
+const rankInput = document.querySelector(".rank-inp");
+const studentsInput2 = document.querySelector(".students-inp2");
+document.getElementById("myForm2").addEventListener("submit", function (e) {
+  e.preventDefault();
+  let rank = rankInput.value;
+  let students = studentsInput2.value;
+  let studentsCount = students * 100000;
+  results2.innerHTML = "";
+  results2.classList.remove("show");
+  void results.offsetWidth;
+  results.removeAttribute("style");
+  rangeError2.classList.remove("show");
+  void rangeError2.offsetWidth;
+  rangeError3.classList.remove("show");
+  void rangeError3.offsetWidth;
+  rangeError4.classList.remove("show");
+  void rangeError4.offsetWidth;
+  nullError4.classList.remove("show");
+  void nullError4.offsetWidth;
+  nullError5.classList.remove("show");
+  void nullError5.offsetWidth;
+  nullError6.classList.remove("show");
+  void nullError6.offsetWidth;
+  rankInput.classList.remove("error-border");
+  void percentileInput.offsetWidth;
+  studentsInput2.classList.remove("error-border");
+  void studentsInput2.offsetWidth;
+  if (rank.trim() === "" && students.trim() === "") {
+    nullError6.classList.add("show");
+    rankInput.classList.add("error-border");
+    studentsInput2.classList.add("error-border");
+    errorSound.currentTime = 0;
+    errorSound.play();
+    return;
+  } else if (rank.trim() === "") {
+    nullError4.classList.add("show");
+    rankInput.classList.add("error-border");
+    errorSound.currentTime = 0;
+    errorSound.play();
+    return;
+  } else if (students.trim() === "") {
+    nullError5.classList.add("show");
+    studentsInput2.classList.add("error-border");
+    errorSound.currentTime = 0;
+    errorSound.play();
+    return;
+  } else if (rank > studentsCount) {
+    rangeError2.classList.add("show");
+    rankInput.classList.add("error-border");
+    errorSound.currentTime = 0;
+    errorSound.play();
+    return;
+  }
+  else if (rank < 1) {
+    rangeError3.classList.add("show");
+    rankInput.classList.add("error-border");
+    errorSound.currentTime = 0;
+    errorSound.play();
+    return;
+  }
+  else if (!Number.isInteger(Number(rank))) {
+    rangeError4.classList.add("show");
+    rankInput.classList.add("error-border");
+    errorSound.currentTime = 0;
+    errorSound.play();
+    return;
+  }
+  var percentile = (100 * (studentsCount - rank)) / studentsCount;
+  results2.innerHTML = `<div class = 'text'> Your Approximate Percentile is </div> <div class = 'rank'> ${percentile} </div>`;
+  if (percentile >= 90) {
+    results2.setAttribute("style", "color: green");
+  } else if (percentile >= 70 && percentile < 90) {
+    results2.setAttribute("style", "color: yellow");
+  } else {
+    results2.setAttribute("style", "color: red");
+  }
+  results2.classList.add("show");
+  sound.currentTime = 0;
+  sound.play();
+
+});
+
+// Reset Btn 2
+
+const resetBtn2 = document.querySelector(".reset-btn2");
+function updateResetBtn2() {
+  if (rankInput.value.length > 0 || studentsInput2.value.length > 0) {
+    resetBtn2.classList.add("show");
+  } else {
+    resetBtn2.classList.remove("show");
+  }
+}
+rankInput.addEventListener("input", updateResetBtn2);
+studentsInput2.addEventListener("input", updateResetBtn2);
+
+resetBtn2.addEventListener("click", () => {
+  resetBtn2.classList.remove("show");
+});
+
+//Switch BTn
+
+const row1 = document.querySelector(".row-1");
+const row2 = document.querySelector(".row-2");
+const switchBtn = document.querySelector(".switch-btn");
+switchBtn.addEventListener("click", () => {
+  row1.classList.toggle("hide");
+  row2.classList.toggle("hide");
+});
+
+// Ester Egg
 
 const esterEggSound = document.getElementById("esterEggSound");
 const esterBtn = document.querySelector(".title-1-btn");

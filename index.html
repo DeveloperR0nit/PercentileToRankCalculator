@@ -40,7 +40,10 @@
     <div class="container">
       <h1 class="title-1">
         welcome to Percentile
-        <i class="fa-solid fa-arrow-right-arrow-left"></i> Rank Calculator
+        <button class="switch-btn">
+          <i class="fa-solid fa-arrow-right-arrow-left"></i>
+        </button>
+        Rank Calculator
         <button
           type="button"
           class="btn btn-primary title-1-btn"
@@ -50,14 +53,14 @@
           🗿
         </button>
       </h1>
-      <div class="content">
+      <div class="content position-relative">
         <audio src="./assests/faah-sound-effect.mp3" id="submitSound"></audio>
         <audio src="./assests/fart-sound-effect.mp3" id="errorSound"></audio>
         <audio
           src="./assests/FAH Slowed Sound Effect.mp3"
           id="esterEggSound"
         ></audio>
-        <div class="row">
+        <div class="row row-1 position-absolute top-0 start-0 end-0">
           <div class="col-12 col-md-8 mb-3 mb-md-0">
             <form action="" id="myForm" class="position-relative">
               <div class="percentile-box position-relative">
@@ -96,13 +99,67 @@
               </div>
               <button class="Btn" type="submit">Check</button>
               <div class="null-error-3 error">
-                Apna rank aur percentile daal warna kya calculate krega???
+                Apna percentile aur no. of students daal warna kya calculate krega???
               </div>
               <button class="reset-btn" type="reset">clear</button>
             </form>
           </div>
           <div class="col-12 col-md-4">
             <div class="results"></div>
+          </div>
+        </div>
+        <div class="row row-2 hide position-absolute top-0 start-0 end-0">
+          <div class="col-12 col-md-8 mb-3 mb-md-0">
+            <form action="" id="myForm2" class="position-relative">
+              <div class="rank-box position-relative">
+                <h2 class="title-2">Enter Your Rank Kid</h2>
+                <input
+                  type="number"
+                  autocomplete="off"
+                  name="Percentile"
+                  class="input rank-inp"
+                  placeholder="696969"
+                  id="percentile"
+                  step="any"
+                />
+                <div class="range-error2 error ">
+                  itne logo ne to exam bhi nahi diya hai bhai🥀
+                </div>
+                <div class="range-error3 error ">
+                  tu thoda sa.... 😡🤬🤬🤬
+                </div>
+                <div class="range-error4 error ">
+                  apne papa ko jaake bolna ki tera decimal mein rank aya hai 
+                </div>
+                <div class="null-error-1 null-error4 error">apna rank daal gawar</div>
+              </div>
+              <div class="students-box position-relative">
+                <h2 class="title-2">
+                  Enter Total No of Students Appeared for the Exam
+                </h2>
+                <input
+                  type="number"
+                  autocomplete="off"
+                  name="students"
+                  class="input students-inp2"
+                  placeholder="99"
+                  id="students"
+                  step="any"
+                />
+                <div class="null-error-2 null-error5 error">
+                  no. of students daal le gawar
+                </div>
+                <span>(in Lakhs)</span>
+              </div>
+              <button class="Btn" type="submit">Check</button>
+              <div class="null-error-3 null-error6 error">
+                Apna rank aur no. of students daal warna kya calculate krega???
+              </div>
+              <button class="reset-btn reset-btn2" type="reset">clear</button>
+            </form>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="results results-2"></div>
           </div>
         </div>
       </div>
