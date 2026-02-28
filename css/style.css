@@ -182,11 +182,12 @@ input:active {
   border: none;
   outline: none;
   border-radius: 15px;
-  padding: 10px 20px;
+  padding: 8px 20px;
   background-color: #ccc;
   box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
   transition: 300ms ease-in-out;
   font-weight: 600;
+  border: 2px solid white;
 }
 
 .input:focus {
@@ -195,6 +196,7 @@ input:active {
   box-shadow:
     13px 13px 100px #969696,
     -13px -13px 100px #ffffff;
+  border: 2px solid white;
 }
 #percentile {
   max-width: 140px;
@@ -237,7 +239,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 600;
   position: absolute;
   left: 150px;
-  bottom: 7px;
+  bottom: 10px;
   line-height: 1.2;
 }
 .null-error-2 {
@@ -253,6 +255,46 @@ input[type="number"]::-webkit-outer-spin-button {
   animation: error-animate 7s ease;
   visibility: visible;
 }
+
+.reset-btn {
+  padding: 5px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: rgb(37, 4, 255);
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transition: 0.6s ease;
+}
+.reset-btn.show{
+  transform: scale(1);
+  opacity: 1;
+}
+
+.reset-btn:hover {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+.reset-btn:active {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
 
 @keyframes error-animate {
   0% {
@@ -293,7 +335,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: fit-content !important;
   border-radius: 20px !important;
 }
-.modal-dialog{
+.modal-dialog {
   justify-content: center;
 }
 .modal-body {
@@ -328,6 +370,23 @@ input[type="number"]::-webkit-outer-spin-button {
 .btn-close > .line-2 {
   transform: rotate(-45deg);
 }
+input.error-border {
+  animation: error-border 7s ease;
+}
+@keyframes error-border {
+  0% {
+    border: 2px solid white;
+  }
+  20% {
+    border: 2px solid red;
+  }
+  80% {
+    border: 2px solid red;
+  }
+  100% {
+    border: 2px solid white;
+  }
+}
 
 /* Responsive */
 @media screen and (max-width: 1200px) {
@@ -353,6 +412,9 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   .null-error-2 {
     bottom: -3px;
+  }
+  .reset-btn{
+    top: 5px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -419,5 +481,9 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   .modal-body {
     padding: 2px !important;
+  }
+  .reset-btn{
+    top: 45px;
+    font-size: 12px;
   }
 }

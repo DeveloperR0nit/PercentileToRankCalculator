@@ -30,10 +30,12 @@ const rangeError = document.querySelector(".range-error");
 const nullError1 = document.querySelector(".null-error-1");
 const nullError2 = document.querySelector(".null-error-2");
 const nullError3 = document.querySelector(".null-error-3");
+const percentileInput = document.querySelector(".percentile-inp");
+const studentsInput = document.querySelector(".students-inp");
 document.getElementById("myForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  let percentile = document.getElementById("percentile").value;
-  let students = document.getElementById("students").value;
+  let percentile = percentileInput.value;
+  let students = studentsInput.value;
   results.innerHTML = "";
   results.classList.remove("show");
   void results.offsetWidth;
@@ -46,23 +48,32 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
   void nullError2.offsetWidth;
   nullError3.classList.remove("show");
   void nullError3.offsetWidth;
+  percentileInput.classList.remove("error-border");
+  void percentileInput.offsetWidth;
+  studentsInput.classList.remove("error-border");
+  void studentsInput.offsetWidth;
   if (percentile.trim() === "" && students.trim() === "") {
     nullError3.classList.add("show");
+    percentileInput.classList.add("error-border");
+    studentsInput.classList.add("error-border");
     errorSound.currentTime = 0;
     errorSound.play();
     return;
   } else if (percentile.trim() === "") {
     nullError1.classList.add("show");
+    percentileInput.classList.add("error-border");
     errorSound.currentTime = 0;
     errorSound.play();
     return;
   } else if (students.trim() === "") {
     nullError2.classList.add("show");
+    studentsInput.classList.add("error-border");
     errorSound.currentTime = 0;
     errorSound.play();
     return;
   } else if (percentile <= 0 || percentile >= 100) {
     rangeError.classList.add("show");
+    percentileInput.classList.add("error-border");
     errorSound.currentTime = 0;
     errorSound.play();
     return;
@@ -81,6 +92,21 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
   sound.currentTime = 0;
   sound.play();
 });
+
+const resetBtn = document.querySelector(".reset-btn");
+function updateResetBtn() {
+  if (percentileInput.value.length > 0 || studentsInput.value.length > 0) {
+    resetBtn.classList.add("show");
+  } else {
+    resetBtn.classList.remove("show");
+  }
+}
+percentileInput.addEventListener("input", updateResetBtn);
+studentsInput.addEventListener("input", updateResetBtn);
+
+resetBtn.addEventListener("click", () => {
+  resetBtn.classList.remove("show");
+})
 
 const esterEggSound = document.getElementById("esterEggSound");
 const esterBtn = document.querySelector(".title-1-btn");

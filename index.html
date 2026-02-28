@@ -53,7 +53,10 @@
       <div class="content">
         <audio src="./assests/faah-sound-effect.mp3" id="submitSound"></audio>
         <audio src="./assests/fart-sound-effect.mp3" id="errorSound"></audio>
-        <audio src="./assests/FAH Slowed Sound Effect.mp3" id="esterEggSound"></audio>
+        <audio
+          src="./assests/FAH Slowed Sound Effect.mp3"
+          id="esterEggSound"
+        ></audio>
         <div class="row">
           <div class="col-12 col-md-8 mb-3 mb-md-0">
             <form action="" id="myForm" class="position-relative">
@@ -63,7 +66,7 @@
                   type="number"
                   autocomplete="off"
                   name="Percentile"
-                  class="input"
+                  class="input percentile-inp"
                   placeholder="99.9987"
                   id="percentile"
                   step="any"
@@ -81,7 +84,7 @@
                   type="number"
                   autocomplete="off"
                   name="students"
-                  class="input"
+                  class="input students-inp"
                   placeholder="99"
                   id="students"
                   step="any"
@@ -95,6 +98,7 @@
               <div class="null-error-3 error">
                 Apna rank aur percentile daal warna kya calculate krega???
               </div>
+              <button class="reset-btn" type="reset">clear</button>
             </form>
           </div>
           <div class="col-12 col-md-4">
