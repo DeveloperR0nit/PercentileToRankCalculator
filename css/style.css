@@ -397,7 +397,7 @@ input.error-border {
   position: relative;
   left: 0;
 }
-.switch-btn:hover{
+.switch-btn:hover {
   transform: scale(1.4);
 }
 .switch-btn.rotate {
@@ -504,6 +504,9 @@ input.error-border {
     transform: translate(0, 0);
   }
 }
+.range-error5 {
+  left: 225px;
+}
 
 /* Responsive */
 @media screen and (max-width: 1400px) {
@@ -529,6 +532,9 @@ input.error-border {
   }
   .range-error2 {
     bottom: -3px;
+  }
+  .range-error5 {
+    bottom: -5px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -787,5 +793,8 @@ input.error-border {
   }
   .switch-btn.rotate {
     left: -88px;
+  }
+  .range-error5 {
+    bottom: -45px;
   }
 }

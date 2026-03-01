@@ -31,6 +31,7 @@ const results = document.querySelector(".results");
 const sound = document.getElementById("submitSound");
 const errorSound = document.getElementById("errorSound");
 const rangeError = document.querySelector(".range-error");
+const rangeError5 = document.querySelector(".range-error5");
 const nullError1 = document.querySelector(".null-error-1");
 const nullError2 = document.querySelector(".null-error-2");
 const nullError3 = document.querySelector(".null-error-3");
@@ -41,6 +42,7 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
   e.preventDefault();
   let percentile = percentileInput.value;
   let students = studentsInput.value;
+  let studentsCnt = students * 100000;
   let error = false;
   results.innerHTML = "";
   results.classList.remove("show");
@@ -48,6 +50,8 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
   results.removeAttribute("style");
   rangeError.classList.remove("show");
   void rangeError.offsetWidth;
+  rangeError5.classList.remove("show");
+  void rangeError5.offsetWidth;
   nullError1.classList.remove("show");
   void nullError1.offsetWidth;
   nullError2.classList.remove("show");
@@ -81,14 +85,17 @@ document.getElementById("myForm").addEventListener("submit", function (e) {
     nullError7.classList.add("show");
     studentsInput.classList.add("error-border");
     error = true;
+  } else if (studentsCnt < 1) {
+    rangeError5.classList.add("show");
+    studentsInput.classList.add("error-border");
+    error = true;
   }
   if (error == true) {
     errorSound.currentTime = 0;
     errorSound.play();
     return;
   }
-  students = students * 100000;
-  var rank = indianNumbers(Math.ceil(((100 - percentile) / 100) * students));
+  var rank = indianNumbers(Math.ceil(((100 - percentile) / 100) * studentsCnt));
   results.innerHTML = `<div class = 'text'> Your Approximate Rank is </div> <div class = 'rank'> ${rank} </div>`;
   if (percentile >= 90) {
     results.setAttribute("style", "color: green");
@@ -134,6 +141,7 @@ const results2 = document.querySelector(".results-2");
 const rangeError2 = document.querySelector(".range-error2");
 const rangeError3 = document.querySelector(".range-error3");
 const rangeError4 = document.querySelector(".range-error4");
+const rangeError6 = document.querySelector(".range-error6");
 const nullError4 = document.querySelector(".null-error4");
 const nullError5 = document.querySelector(".null-error5");
 const nullError6 = document.querySelector(".null-error6");
@@ -156,6 +164,8 @@ document.getElementById("myForm2").addEventListener("submit", function (e) {
   void rangeError3.offsetWidth;
   rangeError4.classList.remove("show");
   void rangeError4.offsetWidth;
+  rangeError6.classList.remove("show");
+  void rangeError6.offsetWidth;
   nullError4.classList.remove("show");
   void nullError4.offsetWidth;
   nullError5.classList.remove("show");
@@ -191,6 +201,10 @@ document.getElementById("myForm2").addEventListener("submit", function (e) {
     error = true;
   } else if (studentsCount <= 0) {
     nullError8.classList.add("show");
+    studentsInput2.classList.add("error-border");
+    error = true;
+  } else if (studentsCount < 1) {
+    rangeError6.classList.add("show");
     studentsInput2.classList.add("error-border");
     error = true;
   } else if (rank > studentsCount) {
